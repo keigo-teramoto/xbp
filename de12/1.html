@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>teraの第1回</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>第1回 gitとhtml</h1>
+    <p>第1回の授業では、gitでファイルを管理してWebに公開する方法と、htmlでページを書く方法を学びました。このページは、その内容を後から読み返してもわかるようにまとめたものです。</p>
+
+    <!-- ===== gitに関して ===== -->
+    <div>
+        <h2>gitに関して</h2>
+
+        <h3>gitとは</h3>
+        <p>gitは、ファイルの変更履歴を記録する「バージョン管理システム」です。いつ、どのファイルを、どう変えたかを記録しておけます。</p>
+        <p>gitを使わない場合、「レポート_最新.docx」「レポート_最新2.docx」のようにファイルをコピーして残すことになり、どれが本当の最新なのかわからなくなります。gitを使うと、ファイルは1つのままで、次のことができます。</p>
+        <ul>
+            <li>過去の状態にいつでも戻せる</li>
+            <li>どこを変えたのかを後から確認できる</li>
+            <li>複数人で同じファイルを編集しても、変更をまとめられる</li>
+        </ul>
+
+        <h3>gitとGitHubの違い</h3>
+        <p>名前が似ていますが、別のものです。</p>
+        <ul>
+            <li>git：自分のパソコンの中で動く、履歴を記録するための道具</li>
+            <li>GitHub：gitで記録した履歴をインターネット上に置いておけるサービス</li>
+        </ul>
+        <p>gitだけでも履歴の管理はできますが、パソコンが壊れると履歴も消えてしまいます。GitHubに置いておくと、バックアップになり、他の人と共有したり、Webページとして公開したりできます。</p>
+        <!-- イラスト：自分のパソコン（git）とインターネット上のGitHubの関係 -->
+        <!-- <img src="./images/ファイル名.jpeg" alt="gitとGitHubの関係" width="50%"> -->
+
+        <h3>用語</h3>
+        <ul>
+            <li>リポジトリ：ファイルとその変更履歴をまとめて保存している場所。自分のパソコンにあるものを「ローカルリポジトリ」、GitHubにあるものを「リモートリポジトリ」と呼ぶ。</li>
+            <li>ステージング（add）：次のコミットに含めるファイルを選ぶこと。変更したファイルのうち、記録したいものだけを選べる。</li>
+            <li>コミット（commit）：選んだ変更を、メッセージをつけて履歴に記録すること。ゲームのセーブポイントのようなもの。</li>
+            <li>プッシュ（push）：ローカルリポジトリのコミットを、リモートリポジトリ（GitHub）に送ること。</li>
+            <li>プル（pull）：リモートリポジトリの新しい変更を、自分のパソコンに取り込むこと。</li>
+            <li>クローン（clone）：リモートリポジトリを丸ごと自分のパソコンにコピーすること。最初の1回だけ行う。</li>
+        </ul>
+
+        <h3>ファイルを公開するまでの手順</h3>
+        <p>ファイルを編集してから公開するまでの流れは、次の3ステップです。</p>
+        <ol>
+            <li>add：記録したいファイルを選ぶ<br>
+                <code>git add ファイル名</code>（全部まとめて選ぶときは <code>git add .</code>）</li>
+            <li>commit：選んだ変更をメッセージつきで記録する<br>
+                <code>git commit -m "何を変えたかのメッセージ"</code></li>
+            <li>push：記録した内容をGitHubに送る<br>
+                <code>git push</code></li>
+        </ol>
+        <p>今どのファイルが変更されているかは <code>git status</code> で確認できます。</p>
+        <p>大事なのは、commitしただけではGitHubには反映されないことです。commitは自分のパソコンの中での記録で、pushして初めてインターネット上に送られます。</p>
+        <!-- イラスト：作業フォルダ → (add) → ステージング → (commit) → ローカルリポジトリ → (push) → GitHub の流れ -->
+        <!-- <img src="./images/ファイル名.jpeg" alt="addからpushまでの流れ" width="50%"> -->
+
+        <h3>コミットメッセージ</h3>
+        <p>コミットにつけるメッセージは、後から履歴を見たときに「このとき何をしたのか」を知る手がかりになります。「更新」だけでは内容がわからないので、「第1回の演習ノートを追加」のように、何を変えたのかを書くと後で役に立ちます。</p>
+
+        <h3>GitHub Pagesで公開される仕組み</h3>
+        <p>GitHub Pagesは、GitHubのリポジトリに入っているhtmlファイルを、そのままWebページとして公開してくれる機能です。pushすると、少し時間をおいて公開ページにも反映されます。</p>
+        <p>公開されるURLは、次の形になります。</p>
+        <p><code>https://ユーザー名.github.io/リポジトリ名/フォルダ名/ファイル名</code></p>
+        <p>リポジトリの中のフォルダ構成が、そのままURLになります。たとえば、リポジトリの中の「de12」フォルダにある「1.html」は、URLの最後が <code>/de12/1.html</code> になります。</p>
+    </div>
+
+    <!-- ===== htmlに関して ===== -->
+    <div>
+        <h2>htmlに関して</h2>
+        <p>授業ページ「htmlに関して①」「htmlに関して②」の内容を、後で自分が見返してわかるようにまとめ直しました。</p>
+
+        <h3>ホームページとhtmlファイルの関係</h3>
+        <p>ふだん見ているホームページの正体は、webサーバーに置いてあるhtmlファイルです。ブラウザはそのファイルを受け取って表示しています。</p>
+        <p>つまり、自分のホームページを作る手順は次の2つだけです。</p>
+        <ol>
+            <li>htmlファイルを自分で書く</li>
+            <li>webサーバーにアップロードする</li>
+        </ol>
+        <p>この授業では、webサーバーとして無料のGitHub Pagesを使います。gitでpushすることが「アップロード」にあたります。</p>
+        <!-- イラスト：自分のパソコン → (push) → webサーバー(GitHub Pages) → 見る人のブラウザ -->
+        <!-- <img src="./images/ファイル名.jpeg" alt="htmlファイルが公開されるまで" width="50%"> -->
+
+        <h3>htmlという名前の意味</h3>
+        <p>htmlは「Hyper Text Markup Language」の略です。2つに分けて覚えます。</p>
+        <ul>
+            <li>Hyper Text：「テキストを超えた文書」という意味。テッド・ネルソンが提唱した考え方で、著書『Computer Lib』で紹介されている。文字だけでなく、他のページへのリンク、画像、動画などがつながった文書のこと。</li>
+            <li>Markup：文書の中に「意味」をつけていくこと。「ここは見出し」「ここは画像」という印をつける。</li>
+        </ul>
+        <p>その印が「タグ」です。htmlを書くというのは、文章にタグで意味をつけていく作業だと考えるとわかりやすいです。</p>
+
+        <h3>タグの書き方</h3>
+        <p>タグは <code>&lt;</code> と <code>&gt;</code> で囲んで書きます。開始タグと終了タグで文字をはさむのが基本で、終了タグには <code>/</code> がつきます。</p>
+        <p><code>&lt;h1&gt;見出し1&lt;/h1&gt;</code></p>
+        <p>こう書くと、文字が「見出し」という意味を持ち、見出しらしい大きさで表示されます。自分で文字の大きさを指定しているのではなく、意味をつけた結果として大きくなる、という順番です。</p>
+        <ul>
+            <li><code>&lt;h1&gt;</code>：大見出し</li>
+            <li><code>&lt;h2&gt;</code>：中見出し</li>
+            <li><code>&lt;h3&gt;</code>：小見出し</li>
+        </ul>
+        <p>タグの中に書く <code>src="..."</code> や <code>href="..."</code> のような追加の情報は「属性」と呼びます。</p>
+        <!-- イラスト：開始タグ・内容・終了タグ・属性がどこにあたるか -->
+        <!-- <img src="./images/ファイル名.jpeg" alt="タグの仕組み" width="50%"> -->
+
+        <h3>headとbody</h3>
+        <p>htmlファイルは、headとbodyの2つの部分に分かれています。</p>
+        <ul>
+            <li><code>&lt;head&gt;</code>：ページの設定を書く場所。タイトルや、読み込むスタイルシートを書く。</li>
+            <li><code>&lt;body&gt;</code>：画面に表示される中身を書く場所。文章や画像はここに書く。</li>
+        </ul>
+        <p>迷ったら「見せたいものはbody、設定はhead」と覚えておきます。</p>
+        <!-- イラスト：ブラウザの画面で、headの内容（タブのタイトル）とbodyの内容（ページ本体）がどこに出るか -->
+        <!-- <img src="./images/ファイル名.jpeg" alt="headとbodyの表示される場所" width="50%"> -->
+
+        <h3>フォルダの構成とファイル名のルール</h3>
+        <p>ブートキャンプで、ホームディレクトリの中に「mygit」フォルダ、その中に「xbp」フォルダを作りました。デザイン演習Ⅰ・Ⅱでは、xbpの中の「de12」フォルダを編集していきます。</p>
+        <pre><code>ホームディレクトリ
+  └ mygit
+      └ xbp
+          └ de12   ← ここを編集する</code></pre>
+        <p>覚えておくルールは2つあります。</p>
+        <ul>
+            <li>トップページは index.html：URLをフォルダまでしか書かなかった場合、ブラウザはそのフォルダの中のindex.htmlを表示する。だから各フォルダの入り口になるページはindex.htmlという名前にする。</li>
+            <li>ファイル名は半角英数字：日本語のファイル名は不具合の原因になるので使わない。画像ファイルも同じ。</li>
+        </ul>
+
+        <h3>書いた結果を確認する（Live Server）</h3>
+        <p>VSCodeの拡張機能「Live Server」を使うと、編集中のhtmlファイルをブラウザで表示できます。ファイルを保存するたびに表示が更新されるので、書く → 保存 → 確認、を繰り返して進めます。</p>
+
+        <h3>文字を書く：divとbr</h3>
+        <p>文章は、段落などのかたまりごとに <code>&lt;div&gt;</code> タグでくくります。divは「division（分割）」の略です。</p>
+        <p>htmlでは、ファイルの中で改行しても画面では改行されません。改行したい場所には <code>&lt;br&gt;</code> タグを書きます。</p>
+        <pre><code>&lt;div&gt;
+    ああああああ&lt;br&gt;
+    12345678&lt;br&gt;
+    いいいいいい
+&lt;/div&gt;</code></pre>
+
+        <h3>画像を入れる：img</h3>
+        <p>画像の表示には <code>&lt;img&gt;</code> タグを使います（imageの略）。終了タグはいりません。</p>
+        <p><code>&lt;img src="./images/testimage.png" width="30%"&gt;</code></p>
+        <ul>
+            <li><code>src</code>：画像ファイルの場所を書く。sourceの略。</li>
+            <li><code>width</code>：画像の幅。<code>%</code> で書くと、画面の幅に対する割合になる。<code>width="30%"</code> なら画面の幅の30%。</li>
+        </ul>
+        <p>写真を載せるときの注意：スマホやデジカメの写真は印刷用に解像度が高く、ファイルサイズがとても大きいです。ホームページではそこまでの大きさは必要なく、大きいと表示が遅くなります。GitHubにpushする写真は、1MB（1024KB）以下に小さくしてから入れます。</p>
+
+        <h3>ファイルの場所の書き方（階層）</h3>
+        <p>画像やリンク先の場所は、今編集しているファイルから見た位置で書きます。使う記号は2つです。</p>
+        <ul>
+            <li><code>./</code>：同じ階層（今のファイルと同じフォルダ）</li>
+            <li><code>../</code>：1つ上の階層</li>
+        </ul>
+        <p>読み方のコツは、<code>/</code> を「中の」と読み替えることです。</p>
+        <p><code>./images/testimage.png</code> → 「同じ階層の〈中の〉imagesフォルダの〈中の〉testimage.png」</p>
+        <p>de12フォルダの中にあるファイルから見た場合の例です。</p>
+        <ul>
+            <li><code>./images</code>：de12の中のimagesフォルダ</li>
+            <li><code>../images</code>：1つ上のxbpフォルダの中のimagesフォルダ（de12と同じ階層にある別のimagesフォルダ）</li>
+            <li><code>../index.html</code>：xbpフォルダの中のindex.html（XBPのトップページ）</li>
+        </ul>
+        <p>この書き方は画像だけでなく、リンクやスタイルシートなど、ファイルを指定する場面すべてで共通です。VSCodeでは <code>./</code> や <code>../</code> と入力するとフォルダやファイルの候補が出るので、そこから選ぶと打ち間違いを防げます。</p>
+        <!-- イラスト：フォルダの構成（xbp → de12 → images / css / 1.html / index.html）と、./ と ../ がどこを指すか -->
+        <!-- <img src="./images/ファイル名.jpeg" alt="フォルダ構成と階層の書き方" width="50%"> -->
+
+        <h3>箇条書き：ol、ul、li</h3>
+        <ul>
+            <li><code>&lt;ol&gt;</code>：番号つきの箇条書き。ordered listの略。</li>
+            <li><code>&lt;ul&gt;</code>：番号なしの箇条書き。unordered listの略。</li>
+            <li><code>&lt;li&gt;</code>：箇条書きの1項目。listの略。olかulの中に書く。</li>
+        </ul>
+        <pre><code>&lt;ol&gt;
+    &lt;li&gt;ああああああ&lt;/li&gt;
+    &lt;li&gt;いいいいいい&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        <p>番号をなくしたいときは、<code>ol</code> を <code>ul</code> に変えるだけです。略す前の英語（ordered＝順番あり、unordered＝順番なし）で覚えると混ざりません。</p>
+
+        <h3>リンクを作る：a</h3>
+        <p>リンクには <code>&lt;a&gt;</code> タグを使います（anchorの略）。</p>
+        <ul>
+            <li><code>href</code>：リンク先を書く。hypertext referenceの略。</li>
+            <li><code>target="_blank"</code>：リンク先を新しいタブで開く。書かなければ同じタブで開く。</li>
+        </ul>
+        <pre><code>&lt;a href="./index.html"&gt;デザイン演習Ⅰ・Ⅱトップページ&lt;/a&gt;
+&lt;a href="../index.html"&gt;XBPトップページ&lt;/a&gt;
+&lt;a href="https://www.yahoo.co.jp/" target="_blank"&gt;Yahoo&lt;/a&gt;
+&lt;a href="./files/test.pdf" target="_blank"&gt;pdfファイル&lt;/a&gt;</code></pre>
+        <p>リンク先の書き方は3種類あります。</p>
+        <ul>
+            <li>自分のサイトの中のページ：<code>./</code> や <code>../</code> を使って場所を書く</li>
+            <li>外部のサイト：<code>https://</code> から始まるURLをそのまま書く</li>
+            <li>pdfなどのファイル：ページと同じように場所を書けば、そのファイルが開く</li>
+        </ul>
+
+        <h3>タイトルを変える：title</h3>
+        <p>headの中の <code>&lt;title&gt;</code> タグに書いた文字が、ブラウザのタブに表示されます。ページの本文には出てきません。</p>
+        <p><code>&lt;title&gt;XBPのページ&lt;/title&gt;</code></p>
+
+        <h3>スタイルシートを読み込む：css</h3>
+        <p>cssファイルは、htmlのいろいろな書式（背景、余白、文字の大きさなど）をまとめて決めておくファイルです。読み込むだけで、タグごとの書式がページに反映されます。</p>
+        <p>headの中に次のように書きます。</p>
+        <p><code>&lt;link rel="stylesheet" href="./css/style.css"&gt;</code></p>
+        <p>うまく読み込めると、背景や右側の余白が整います。見た目が変わらないときは、<code>href</code> の場所の書き方が合っているかを最初に確認します。</p>
+
+        <h3>公開するときに守ること</h3>
+        <p>ホームページは誰でも見られる場所に公開されるので、次のことを守ります。</p>
+        <ul>
+            <li>個人情報（住所、学籍番号など）を載せない</li>
+            <li>本人の許可がない顔写真や氏名を載せない</li>
+            <li>誹謗中傷にあたる内容を載せない</li>
+            <li>引用するときは、引用元を明らかにする</li>
+            <li>外部のページにリンクを貼るときは、自分のページではないことを明記する（明記しないと、自分が作ったページのように見えてしまう）</li>
+            <li>動画ファイルは絶対にGitHubにpushしない。ファイルが重く、最悪の場合リポジトリが壊れる。動画を見せたいときはYouTubeにアップロードして、リンクを貼るか、埋め込み用のコードをhtmlに貼りつける。</li>
+        </ul>
+        <p>情報の公開は、神奈川大学の情報倫理に関するガイドラインに沿って行います。</p>
+
+        <h3>早見表</h3>
+        <p>書き方を忘れたときは、まずここを見ます。</p>
+        <ul>
+            <li>見出し：<code>&lt;h1&gt;</code> <code>&lt;h2&gt;</code> <code>&lt;h3&gt;</code></li>
+            <li>かたまり：<code>&lt;div&gt;</code>（division）</li>
+            <li>改行：<code>&lt;br&gt;</code></li>
+            <li>画像：<code>&lt;img src="場所" width="30%"&gt;</code></li>
+            <li>番号つき箇条書き：<code>&lt;ol&gt;</code> と <code>&lt;li&gt;</code></li>
+            <li>番号なし箇条書き：<code>&lt;ul&gt;</code> と <code>&lt;li&gt;</code></li>
+            <li>リンク：<code>&lt;a href="場所"&gt;文字&lt;/a&gt;</code></li>
+            <li>タイトル：<code>&lt;title&gt;</code>（headの中）</li>
+            <li>スタイルシート：<code>&lt;link rel="stylesheet" href="場所"&gt;</code>（headの中）</li>
+        </ul>
+    </div>
+
+    <!-- ===== 疑問に思って調べたこと ===== -->
+    <div>
+        <h2>疑問に思って調べたこと</h2>
+
+        <h3>imgのaltは何のためにあるのか</h3>
+        <p><code>alt</code> は、画像の内容を文字で説明するための属性です。画像が読み込めなかったときに代わりに表示されます。また、目の不自由な人が使う読み上げソフトは、この文章を読み上げます。画像が見えない人にも内容が伝わるように書きます。</p>
+
+        <h3>lang="jp" と lang="ja" はどちらが正しいのか</h3>
+        <p>正しいのは <code>lang="ja"</code> です。<code>lang</code> 属性には言語を表すコードを書きます。「ja」は日本語という言語のコードで、「jp」は日本という国のコードなので、言語の指定には使えません。</p>
+
+        <h3>meta charset="UTF-8" は何のためにあるのか</h3>
+        <p>ファイルの文字コード（文字をどういう決まりで保存しているか）をブラウザに伝えるためのものです。これがないと、ブラウザが文字コードを間違えて、日本語が文字化けすることがあります。headの中のなるべく上のほうに書きます。</p>
+
+        <h3>タグを画面にそのまま表示するにはどうするのか</h3>
+        <p>このページのようにタグの説明を書きたいとき、<code>&lt;h1&gt;</code> とそのまま書くと、ブラウザがタグとして処理してしまい、文字として表示されません。<code>&lt;</code> は <code>&amp;lt;</code>、<code>&gt;</code> は <code>&amp;gt;</code> と書くと、記号として表示されます。</p>
+    </div>
+
+    <!-- ===== 参考にしたサイト ===== -->
+    <div>
+        <h2>参考にしたサイト</h2>
+        <p>以下はすべて自分のページではなく、授業のページと外部のサイトです。</p>
+        <ul>
+            <li><a href="https://kuxbp.github.io/xbp/xbp2026/design_e12/01abouthtml/hp1.html" target="_blank">htmlに関して①（授業ページ）</a></li>
+            <li><a href="https://kuxbp.github.io/xbp/xbp2026/design_e12/01abouthtml/hp2.html" target="_blank">htmlに関して②（授業ページ）</a></li>
+            <li><a href="https://git-scm.com/book/ja/v2" target="_blank">Pro Git（外部サイト）</a></li>
+            <li><a href="https://docs.github.com/ja/pages" target="_blank">GitHub Pages のドキュメント（外部サイト）</a></li>
+            <li><a href="https://developer.mozilla.org/ja/docs/Web/HTML" target="_blank">MDN Web Docs：HTML（外部サイト）</a></li>
+        </ul>
+    </div>
+
+    <p><a href="./index.html">一覧に戻る</a></p>
+</body>
+</html>
