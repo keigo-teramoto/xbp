@@ -62,6 +62,10 @@ img{
     max-width: 100%;
     height: auto;
 }
+iframe{
+    display: block;
+    max-width: 100%;
+}
 a{
     color: #222;
 }
